@@ -10,7 +10,7 @@ firestore.collection('evnets').add({
 ...event,
 authorFirstName:'test',
 authorLastName:'user',
-authorId:22,
+authorId:05,
 createdAt:new Date()
 
 
