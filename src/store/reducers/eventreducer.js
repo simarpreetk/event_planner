@@ -17,7 +17,7 @@ const eventreducer = (state=initState,action) =>{
 switch(action.type){
  
   case 'CREATE_EVENT':
-     console.log('created project',action.event);
+     console.log('created event',action.event);
      return state;
   case 'CREATE_EVENT_ERROR':
      console.log('Error in creating event',action.err);
