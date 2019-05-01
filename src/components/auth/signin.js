@@ -43,6 +43,7 @@ class Signin extends Component {
       <div>
          <div className="container">
           <form onSubmit={this.handleSubmit} className="white">
+          <center><img src="../img/logo.png" alt="Logo SK"  height="150" width="150"></img></center>
 
             <h5 className="grey-text text-darken-3">Sign In</h5>
                         

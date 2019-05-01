@@ -29,6 +29,7 @@ class Createevent extends Component {
     e.preventDefault();
     //console.log(this.state);
     this.props.createevent(this.state)
+    this.props.history.push('/');
   }
   
   render() {

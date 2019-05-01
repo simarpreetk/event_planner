@@ -4,13 +4,15 @@ return(dispatch,getState,{getFirebase,getFirestore}) =>{
 
 // make asyn all to database
 
-const firestore = getFirestore();
+const firestore = getFirestore(); 
+const profile =getState().firebase.profile;
+const authorId =getState().firebase.auth.uid;
 
 firestore.collection('evnets').add({
 ...event,
-authorFirstName:'test',
-authorLastName:'user',
-authorId:22,
+authorFirstName:profile.firstName,
+authorLastName:profile.lastName,
+authorId:authorId,
 createdAt:new Date()
 
 
