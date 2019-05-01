@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {createevent} from '../../store/actions/eventactions'
+import {Redirect} from 'react-router-dom'
+
 
 class Createevent extends Component {
   state={
@@ -30,6 +32,11 @@ class Createevent extends Component {
   }
   
   render() {
+    const{auth} = this.props;
+    if (!auth.uid) {
+     
+      return (<Redirect to = '/signin' />)
+    }
     return (
       <div>
          <div className="container">
@@ -61,6 +68,19 @@ class Createevent extends Component {
   }
 }
 
+const mapStateToProps= (state)=>{
+
+   return{
+
+    auth:state.firebase.auth
+   
+  
+  }
+
+
+}
+
+
 const mapDispatchToProps =(dispatch)=>{
   
   return{
@@ -71,5 +91,5 @@ const mapDispatchToProps =(dispatch)=>{
 
 }
 
-export default connect(null,mapDispatchToProps)(Createevent)
+export default connect(mapStateToProps,mapDispatchToProps)(Createevent)
 

@@ -4,14 +4,18 @@ import Eventlist from '../event/eventlist'
 import {connect} from 'react-redux'
 import {firestoreConnect}  from 'react-redux-firebase'
 import {compose} from 'redux'
-
+import {Redirect} from 'react-router-dom'
 
 
 class Dashboard extends Component{
-  render(){
+  
+   render(){
      //console.log(this.props);
-     const{events} = this.props;
-
+     const{events,auth} = this.props;
+     if (!auth.uid) {
+     
+       return (<Redirect to = '/signin' />)
+     }
      return(
 
              <div className = "dashboard container"> 
@@ -48,7 +52,8 @@ class Dashboard extends Component{
 const mapStateToProps =(state) =>{
    console.log(state);
    return {
-      events: state.firestore.ordered.evnets
+      events: state.firestore.ordered.evnets,
+      auth:state.firebase.auth
    }
 }
 
