@@ -30,7 +30,7 @@ const createNotification = (notification => {
    const event = doc.data();
    const notification={
      
-      content:'Added a new event',
+      content:' Added a new event',
       user:`${event.authorFirstName} ${event.authorLastName}`,
       time: admin.firestore.FieldValue.serverTimestamp()
 
@@ -49,7 +49,7 @@ const createNotification = (notification => {
           const newUser = doc.data();
           const notification = {
 
-              content:'Joined the event',
+              content:' Joined the event',
               user: `${newUser.firstName} ${newUser.lastName}`,
               time : admin.firestore.FieldValue.serverTimestamp()
           }
